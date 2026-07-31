@@ -1,6 +1,6 @@
 # Jeremy Gracey
 
-AI/ML engineer and technical founder in Honolulu, HI. I build clinical AI and agent infrastructure with a bias toward provenance: answers that cite the patient record, the textbook page, or the decision log that produced them.
+AI/ML engineer and technical founder in Seattle, WA. I build clinical AI and agent infrastructure with a bias toward provenance: answers that cite the patient record, the textbook page, or the decision log that produced them.
 
 ## What I build
 
@@ -25,4 +25,4 @@ Python and TypeScript. Claude API, MCP, LangGraph, FastAPI, RAG and evals. FHIR 
 
 ## Elsewhere
 
-[jeremygracey.ai](https://jeremygracey.ai)
+[jeremygracey.ai](https://jeremygracey.ai) · [LinkedIn](https://www.linkedin.com/in/jeremygracey-ai)

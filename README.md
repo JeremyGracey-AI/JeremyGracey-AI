@@ -1,6 +1,6 @@
 # Jeremy Gracey
  
-[jeremygracey.ai](https://jeremygracey.ai) · [LinkedIn](https://www.linkedin.com/in/jeremygracey-ai/) · [Hugging Face](https://huggingface.co/jeremygracey-ai) · [jeremy.a.gracey@gmail.com](mailto:jeremy.a.gracey@gmail.com)  ·  (mailto:gracey.ai@outlook.com)
+[jeremygracey.ai](https://jeremygracey.ai) · [LinkedIn](https://www.linkedin.com/in/jeremygracey-ai/) · [Hugging Face](https://huggingface.co/jeremygracey-ai) · [jeremy.a.gracey@gmail.com](mailto:jeremy.a.gracey@gmail.com)  ·  (gracey.ai@outlook.com)
  
 AI/ML engineer and technical founder in Seattle. I build agent systems that hold up under audit: pipelines that log their decisions, memory with governance and replay, RAG that cites the exact page behind every claim.
  

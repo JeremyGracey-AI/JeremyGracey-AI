@@ -6,6 +6,10 @@ AI/ML engineer and technical founder in Seattle. I build agent systems that hold
  
 Before software I worked emergency medicine, acute psychiatric care, and special education. Nobody in those rooms accepts "trust me" as an answer, and I never learned to accept it from software either. Everything below is built to that standard.
  
+## Opus one
+
+**[Prime Radiant](https://github.com/JeremyGracey-AI/prime-radiant)** — my best work to date. A CDC FluSight forecaster that predicts weekly flu hospital admissions for every US state and territory as calibrated quantiles, built vintage-honest: the model never sees data dated after the forecast moment (training data is checked out of the hub's git history as it existed on that date), and the code path that submits live is the same one backtested across 55 historical weeks — it outscores the best academic team in the 2025-26 season backtest and prints the two seasons it loses just as plainly. 100% test coverage with the CI gate set there, every workflow gate mutant-tested, and the off-season runs itself. [The codebase, drawn](https://jeremygracey.ai/prime-radiant) · [live dashboard](https://huggingface.co/spaces/jeremygracey-ai/prime-radiant) · [PyPI](https://pypi.org/project/prime-radiant/)
+ 
 ## What I build
  
 Five threads, each with public code behind it.

@@ -12,7 +12,9 @@ Before software I worked emergency medicine, acute psychiatric care, and special
  
 ## What I build
  
-Five threads, each with public code behind it.
+Six threads, each with public code behind it.
+ 
+**Edge vision and sensing.** [prevera-guardian-lidar](https://github.com/JeremyGracey-AI/prevera-guardian-lidar) is a fall-detection research prototype on a Jetson Orin Nano: a floor-level 2D LIDAR, plus RF-DETR served on the device by Roboflow Inference for the poses the LIDAR misses. Every evaluation is declared before it runs and the failures are published beside the passes. It led to an upstream fix, [roboflow/inference#3072](https://github.com/roboflow/inference/pull/3072). One subject, one room; patent pending.
  
 **Agent infrastructure.** The plumbing that makes autonomous agents accountable. [Compass BlackBox IQ](https://github.com/JeremyGracey-AI/Agents-League-Hackathon-Compass-BlackBox-IQ) is a flight recorder for agents: git-backed memory, decision records, and a skill forge, exposed over MCP. [llm-council-mcp](https://github.com/JeremyGracey-AI/llm-council-mcp) runs multi-model deliberation as an MCP server for Claude Code — ships on PyPI as `mcp-llm-council`.
  
@@ -24,7 +26,7 @@ Five threads, each with public code behind it.
  
 **Clinical AI on open standards.** [clinical-ai-agent](https://github.com/JeremyGracey-AI/clinical-ai-agent) is citation-traceable decision support on SMART on FHIR: a five-agent pipeline with dual citations back to patient data and clinical sources. [Hospital-Readmission-Prediction-Model](https://github.com/JeremyGracey-AI/Hospital-Readmission-Prediction-Model) covers the classical ML side, synthetic EHR data through SHAP-based clinical interpretation.
  
-Off GitHub: [PREVERA GUARDIAN+AI](https://preveraguard.com), fall-risk detection built on V-JEPA and LIDAR on Jetson hardware (USPTO provisional filed 2026), and customer-facing agents for real businesses — booking, triage, and operations — deployed and in use.
+Off GitHub: customer-facing agents for real businesses — booking, triage, and operations — deployed and in use.
  
 ## Beyond the pins
  

@@ -19,27 +19,6 @@ Before software I worked emergency medicine, acute psychiatric care, and special
 
 <h3>
   <picture>
-    <source media="(max-width: 700px)" srcset="assets/section-opus-one-mobile.svg">
-    <img src="assets/section-opus-one.svg" alt="Opus one" width="100%">
-  </picture>
-</h3>
-
-**[Prime Radiant](https://github.com/JeremyGracey-AI/prime-radiant)** is my best work to date: a CDC FluSight forecaster that predicts weekly flu hospital admissions for all 53 FluSight locations, 23 quantiles at a time. It is [registered with the CDC FluSight hub](https://github.com/cdcepi/FluSight-forecast-hub/pull/3696) as `JGracey-prime_radiant`.
-
-It is built vintage-honest. The model never sees data dated after the forecast moment: training data is checked out of the hub's git history as it existed on that date. The backtest replays the same pipeline the weekly job runs, over 85 weekly origins across three seasons.
-
-In the 2025-26 backtest its LightGBM model edges UMass-flusion, the top-ranked model in FluSight 2023-24, on natural-scale relative WIS (0.609 vs 0.625) and trails it by 0.002 on the log scale. UMass-flusion beats it in 2023-24 and 2024-25. The registered entry is the ensemble of that model and a CDC-baseline replica, and it scores 0.764 in 2025-26. The Prime Radiant README prints every table just as plainly.
-
-The offline test suite sits at 100% coverage with the CI gate set there. The workflow gates are pinned by tests checked against hand-run mutants. A weekly scheduled dry run keeps the pipeline exercised.
-
-[![ci](https://img.shields.io/github/actions/workflow/status/JeremyGracey-AI/prime-radiant/ci.yml?branch=master&label=ci&style=flat-square&labelColor=0B1629)](https://github.com/JeremyGracey-AI/prime-radiant/actions/workflows/ci.yml)
-[![coverage](https://img.shields.io/codecov/c/github/JeremyGracey-AI/prime-radiant?style=flat-square&labelColor=0B1629)](https://app.codecov.io/github/JeremyGracey-AI/prime-radiant)
-[![PyPI](https://img.shields.io/pypi/v/prime-radiant?style=flat-square&labelColor=0B1629&color=35507A)](https://pypi.org/project/prime-radiant/)
-
-[The codebase, drawn](https://jeremygracey.ai/prime-radiant) · [dashboard](https://huggingface.co/spaces/jeremygracey-ai/prime-radiant) · [PyPI](https://pypi.org/project/prime-radiant/)
-
-<h3>
-  <picture>
     <source media="(max-width: 700px)" srcset="assets/section-built-with-roboflow-mobile.svg">
     <img src="assets/section-built-with-roboflow.svg" alt="Built with Roboflow" width="100%">
   </picture>
@@ -65,7 +44,9 @@ Every evaluation is declared before it runs and the failures are published besid
   </picture>
 </h3>
 
-Five more threads, each with public code behind it.
+Six more threads, each with public code behind it.
+
+**Forecasting.** [Prime Radiant](https://github.com/JeremyGracey-AI/prime-radiant) is a CDC FluSight forecaster: it predicts weekly flu hospital admissions for all 53 FluSight locations, 23 quantiles at a time, and is [registered with the CDC FluSight hub](https://github.com/cdcepi/FluSight-forecast-hub/pull/3696) as `JGracey-prime_radiant`. It is built vintage-honest: the model never sees data dated after the forecast moment, and the backtest replays the same pipeline the weekly job runs, over 85 weekly origins across three seasons. [See the dashboard](https://huggingface.co/spaces/jeremygracey-ai/prime-radiant), or `pip install prime-radiant`.
 
 **Agent infrastructure.** The plumbing that makes autonomous agents accountable. [Compass BlackBox IQ](https://github.com/JeremyGracey-AI/Agents-League-Hackathon-Compass-BlackBox-IQ) is a flight recorder for agents: git-backed memory, decision records, and a skill forge, exposed over MCP. [llm-council-mcp](https://github.com/JeremyGracey-AI/llm-council-mcp) runs multi-model deliberation as an MCP server for Claude Code and ships on PyPI as `mcp-llm-council`.
 

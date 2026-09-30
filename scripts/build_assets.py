@@ -22,7 +22,9 @@ How it works
       Rerunning this script writes the same drawing without the block.
 
 To change the page
-    - Section titles: edit SECTIONS, rerun, and reference the new files in README.md.
+    - Sections: edit SECTIONS, rerun, and reference the new files in README.md.
+      Bands are numbered in list order. Delete the SVGs of a section you drop;
+      --check names any that are left behind.
     - Colors: edit the palette block.
     - Motion: edit CSS. Every animation is switched off under prefers-reduced-motion.
 
@@ -151,16 +153,21 @@ class Fragment(NamedTuple):
     route: list[str]
     scale: float
 
+    @property
+    def reach(self) -> float:
+        """Banner pixels from the centre of the entry node to the fragment's right edge."""
+        return max(NODES[n][0] + NODES[n][3] for n in self.ids) - NODES[self.ids[0]][0]
 
+
+# Bands take these in turn, first band first.
 FRAGMENTS = [
-    Fragment(["u0", "u1", "u2", "u3", "u4"], ["u0", "u1", "u4"], 0.56),
     Fragment(["a2", "a3", "a4", "a5", "a6", "a7"], ["a2", "a3", "a4", "a7"], 0.50),
     Fragment(["s3", "t0", "t1"], ["s3", "t0", "t1"], 0.80),
+    Fragment(["u0", "u1", "u2", "u3", "u4"], ["u0", "u1", "u4"], 0.56),
 ]
 
 # (file slug, title as drawn, accessible name)
 SECTIONS = [
-    ("opus-one", "OPUS ONE", "Opus one"),
     ("built-with-roboflow", "BUILT WITH ROBOFLOW", "Built with Roboflow"),
     ("what-i-build", "WHAT I BUILD", "What I build"),
     ("beyond-the-pins", "BEYOND THE PINS", "Beyond the pins"),
@@ -561,12 +568,21 @@ def band(index: int, title: str, label: str, width: float, *, animate: bool = Tr
     d, _, x_title = big.outline(title, size, x_index + 22.0, mid + big.cap_height * size / 2, tracking=0.09)
     c.text(d, INK)
 
-    # The fragment hangs off the right edge with its entry node on the rule.
-    fragment = FRAGMENTS[(index - 1) % len(FRAGMENTS)]
-    scale = fragment.scale * (0.72 if narrow else 1.0)
+    # The fragment hangs off the right edge with its entry node on the rule. A title
+    # too long for its own fragment takes the next one in the cycle that clears it.
+    shrink = 0.72 if narrow else 1.0
+    room = width - pad - x_title - 16.0  # what the title leaves, less a little air
+
+    def fits(f: Fragment) -> bool:
+        return (f.reach + NODES[f.ids[0]][3]) * f.scale * shrink <= room
+
+    cycle = [FRAGMENTS[(index - 1 + i) % len(FRAGMENTS)] for i in range(len(FRAGMENTS))]
+    fragment = next((f for f in cycle if fits(f)), None)
+    if fragment is None:
+        return c.svg()
+    scale = fragment.scale * shrink
     entry_x, entry_y, _, entry_r = NODES[fragment.ids[0]]
-    reach = max(NODES[n][0] + NODES[n][3] for n in fragment.ids) - entry_x
-    origin = width - pad - reach * scale
+    origin = width - pad - fragment.reach * scale
 
     def place(x: float, y: float) -> Point:
         return origin + (x - entry_x) * scale, mid + (y - entry_y) * scale
@@ -638,10 +654,18 @@ def main() -> int:
             for name, text in files.items()
             if not (OUT / name).exists() or drawing((OUT / name).read_text()) != text
         ]
+        dropped = sorted(path.name for path in OUT.glob("section-*.svg") if path.name not in files)
         for name in stale:
             print(f"stale: assets/{name}")
-        print(f"{len(stale)} file(s) differ; rerun without --check" if stale else "assets are up to date")
-        return 1 if stale else 0
+        for name in dropped:
+            print(f"no longer built: assets/{name}")
+        if stale:
+            print(f"{len(stale)} file(s) differ; rerun without --check")
+        if dropped:
+            print(f"{len(dropped)} file(s) belong to a removed section; delete them")
+        if not (stale or dropped):
+            print("assets are up to date")
+        return 1 if stale or dropped else 0
 
     OUT.mkdir(exist_ok=True)
     for name, text in files.items():

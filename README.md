@@ -13,7 +13,7 @@
   <a href="mailto:gracey.ai@outlook.com">gracey.ai@outlook.com</a>
 </p>
 
-AI/ML engineer and technical founder in Seattle. I build agent systems that hold up under audit: pipelines that log their decisions, memory with governance and replay, RAG that cites the exact page behind every claim.
+Founder and applied AI engineer in Seattle. I build agent systems that hold up under audit: pipelines that log their decisions, memory with governance and replay, RAG that cites the exact page behind every claim.
 
 Before software I worked emergency medicine, acute psychiatric care, and special education. Nobody in those rooms accepts "trust me" as an answer, and I never learned to accept it from software either. Everything below is built to that standard.
 
@@ -44,7 +44,7 @@ Every evaluation is declared before it runs and the failures are published besid
   </picture>
 </h3>
 
-Six more threads, each with public code behind it.
+Seven more threads, each with public code behind it.
 
 **Forecasting.** [Prime Radiant](https://github.com/JeremyGracey-AI/prime-radiant) is a CDC FluSight forecaster: it predicts weekly flu hospital admissions for all 53 FluSight locations, 23 quantiles at a time, and is [registered with the CDC FluSight hub](https://github.com/cdcepi/FluSight-forecast-hub/pull/3696) as `JGracey-prime_radiant`. It is built vintage-honest: the model never sees data dated after the forecast moment, and the backtest replays the same pipeline the weekly job runs, over 85 weekly origins across three seasons. [See the dashboard](https://huggingface.co/spaces/jeremygracey-ai/prime-radiant), or `pip install prime-radiant`.
 
@@ -56,9 +56,11 @@ Six more threads, each with public code behind it.
 
 **Neurotech and edge hardware.** [nexus-neuromirror](https://github.com/JeremyGracey-AI/nexus-neuromirror) is offline-first EEG neurofeedback for the Mind Media NeXus-10, from EDF verification to a live dashboard. `pip install nexus-neuromirror`.
 
-**Clinical AI on open standards.** [clinical-ai-agent](https://github.com/JeremyGracey-AI/clinical-ai-agent) is citation-traceable decision support on SMART on FHIR: a five-agent pipeline with dual citations back to patient data and clinical sources. [Hospital-Readmission-Prediction-Model](https://github.com/JeremyGracey-AI/Hospital-Readmission-Prediction-Model) covers the classical ML side, synthetic EHR data through SHAP-based clinical interpretation.
+**Safety evaluation.** [KŪPUNA-AI Bench](https://github.com/JeremyGracey-AI/kupuna-bench-public) ("Let's talk story.") scores AI replies to older adults for both overrefusal and harmful compliance, on an S0–S3 severity scale, with a judge from a model family not under test. I'm the technical lead, working with The Gerontechnology Foundation. Pre-pilot; [DOI 10.5281/zenodo.22667583](https://doi.org/10.5281/zenodo.22667583).
 
-Off GitHub: customer-facing agents for real businesses, handling booking, triage, and operations. Deployed and in use.
+**Clinical AI on open standards.** [clinical-ai-agent](https://github.com/JeremyGracey-AI/clinical-ai-agent) is citation-traceable decision support on SMART on FHIR: a five-agent pipeline with dual citations back to patient data and clinical sources. [Hospital-Readmission-Prediction-Model](https://github.com/JeremyGracey-AI/Hospital-Readmission-Prediction-Model) covers the classical ML side, synthetic EHR data through SHAP-based clinical interpretation. [dbq-qualifier-agent](https://github.com/JeremyGracey-AI/dbq-qualifier-agent) maps a VA knee exam to the 38 CFR Part 4 rating criteria and cites the page and field behind every finding: decision support for a VSO or attorney, never an automated rating. [phi-scrub](https://github.com/JeremyGracey-AI/phi-scrub) is PHI/PII redaction in Rust, on PyPI and crates.io (`pip install phi-scrub`).
+
+Off GitHub: a custom-engine retrieval agent I built for a client and took through their tenant-admin approval into Microsoft 365 Copilot Chat.
 
 <h3>
   <picture>
@@ -89,7 +91,7 @@ Classical ML lives in [helmnet](https://github.com/JeremyGracey-AI/helmnet), VGG
   </picture>
 </h3>
 
-Consulting through the Claude Partner Network. Digging into what neuropsychology's models of memory can teach agent memory design. Open to applied-AI and systems roles in Seattle or SF.
+Consulting through the Claude Partner Network. Heading to Roboflow's Visual Intelligence Summit in San Francisco on October 22. Digging into what neuropsychology's models of memory can teach agent memory design.
 
 <a href="https://jeremygracey.ai">
   <picture>

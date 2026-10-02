@@ -30,7 +30,7 @@ Before software I worked emergency medicine, acute psychiatric care, and special
 
 - **The blind spot.** Lying end-on with feet toward the sensor, a person is two 0.3 m clusters to the LIDAR, and the detector raised 0 events in 33 seconds. Stock RF-DETR found the person in 33 of 33 frames on each camera. That ran on recorded frames; it is not in the live loop yet.
 - **The fine-tune.** I fine-tuned RF-DETR on Roboflow to predict pose as a class, on public fall data, under a plan committed before training started. The model the plan picked passed its bars on the public test split. The device-sized model passed its bars on room frames from the counter camera; from the floor camera it read a head-first lie-down as standing in 30 of 30 frames. Both results are in the repo.
-- **Upstream.** The JetPack 6.2.0 Inference image returned HTTP 500 for every RF-DETR request under the documented `--read-only` container command. I sent the one-line fix and a unit test as [roboflow/inference#3072](https://github.com/roboflow/inference/pull/3072).
+- **Upstream.** The JetPack 6.2.0 Inference image returned HTTP 500 for every RF-DETR request under the documented `--read-only` container command. I sent the one-line fix and a unit test as [roboflow/inference#3072](https://github.com/roboflow/inference/pull/3072); Roboflow merged it on 2026-10-02.
 
 Every evaluation is declared before it runs and the failures are published beside the passes. One subject, one room; not a medical device; patent pending.
 
